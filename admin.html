@@ -1,0 +1,37 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>واجهة الإدارة</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h2>الطلبات المستلمة</h2>
+        <div id="requestsList"></div>
+    </div>
+
+    <script>
+        function loadRequests() {
+            const requestsList = document.getElementById('requestsList');
+            requestsList.innerHTML = '';
+            const requests = JSON.parse(localStorage.getItem('requests')) || [];
+            requests.forEach((req, index) => {
+                const requestItem = document.createElement('div');
+                requestItem.className = 'request-item';
+                requestItem.innerHTML = `<strong>رقم الهاتف:</strong> ${req.phoneNumber}<br><strong>الطلب:</strong> ${req.request}`;
+                requestsList.appendChild(requestItem);
+            });
+
+            // حذف الطلبات من localStorage بعد تحميلها
+            localStorage.removeItem('requests');
+        }
+
+        // تحميل الطلبات عند تحميل الصفحة
+        window.onload = loadRequests;
+    </script>
+</body>
+</html>
+

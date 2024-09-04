@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفرات</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-button {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>الفرات</h1>
+        <h2>إرسال طلب</h2>
+        <form id="requestForm">
+            <label for="phoneNumber">رقم الهاتف:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" required>
+            <label for="request">الطلب:</label>
+            <textarea id="request" name="request" required></textarea>
+            <button type="submit">إرسال</button>
+        </form>
+    </div>
+
+    <button class="admin-button" id="adminButton">created by Abdulelah Almutiri</button>
+
+    <script>
+        document.getElementById('requestForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const request = document.getElementById('request').value;
+
+            // تخزين الطلب في localStorage
+            const requests = JSON.parse(localStorage.getItem('requests')) || [];
+            requests.push({ phoneNumber, request });
+            localStorage.setItem('requests', JSON.stringify(requests));
+
+            // إشعار بوصول طلب جديد
+            alert('تم إرسال الطلب بنجاح!');
+        });
+
+        document.getElementById('adminButton').addEventListener('click', function() {
+            const password = prompt('الرجاء إدخال الرمز:');
+            if (password === 'admin2112') {
+                window.location.href = 'admin.html'; // تأكد من أن admin.html موجود في نفس المجلد
+            } else {
+                alert('رمز غير صحيح!');
+            }
+        });
+    </script>
+</body>
+</html>
+
+

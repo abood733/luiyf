@@ -1,0 +1,21 @@
+document.getElementById('requestForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const request = document.getElementById('request').value;
+
+    fetch('/submit-request', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ phoneNumber, request })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('تم إرسال الطلب بنجاح!');
+        } else {
+            alert('حدث خطأ أثناء إرسال الطلب.');
+        }
+    });
+});

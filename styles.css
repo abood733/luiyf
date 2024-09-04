@@ -1,0 +1,88 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('Screenshot 2024-09-02 163835.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #F5F5DC; /* لون سكري */
+}
+
+button {
+    padding: 10px;
+    background-color: #D4AF37; /* لون ذهبي */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #C5A02A; /* لون ذهبي داكن عند التمرير */
+}
+
+.admin-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة قليلاً */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.request-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #FFF8DC; /* لون سكري فاتح */
+}
+
+h1, h2 {
+    color: black; /* تغيير اللون إلى الأسود */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    }
+}
+
+
